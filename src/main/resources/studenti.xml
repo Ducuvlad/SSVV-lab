@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<inbox>
+    <Student idStudent="11">
+        <nume>name</nume>
+        <grupa>936</grupa>
+        <mail>email@gmail.com</mail>
+        <profesor>prof</profesor>
+    </Student>
+    <Student idStudent="1">
+        <nume>Roman Ionut</nume>
+        <grupa>222</grupa>
+        <mail>riir3478@scs.ubbcluj.ro</mail>
+        <profesor>Plesu Andrei</profesor>
+    </Student>
+    <Student idStudent="12">
+        <nume>Nume</nume>
+        <grupa>936</grupa>
+        <mail>email@gmail.com</mail>
+        <profesor>prof</profesor>
+    </Student>
+    <Student idStudent="2">
+        <nume>Gorea Andra</nume>
+        <grupa>921</grupa>
+        <mail>gaie1234@scs.ubbcluj.ro</mail>
+        <profesor>Lovin Andrei</profesor>
+    </Student>
+    <Student idStudent="14">
+        <nume>Nume</nume>
+        <grupa>936</grupa>
+        <mail>email@gmail.com</mail>
+        <profesor>prof</profesor>
+    </Student>
+    <Student idStudent="15">
+        <nume>Numele</nume>
+        <grupa>936</grupa>
+        <mail>email@gmail.com</mail>
+        <profesor>prof</profesor>
+    </Student>
+</inbox>
