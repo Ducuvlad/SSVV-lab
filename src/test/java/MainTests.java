@@ -197,7 +197,7 @@ public class MainTests
         exceptionPolicy.expect(ValidationException.class);
         exceptionPolicy.expectMessage("\nID invalid");
         System.out.println("Add Teme Fail: Null ID");
-        new Teme(null, "descrip", 4, 7);
+        serviceTeme.add(new Teme(null, "descrip", 4, 7));
 
     }
 
@@ -206,7 +206,7 @@ public class MainTests
         exceptionPolicy.expect(ValidationException.class);
         exceptionPolicy.expectMessage("\nID invalid");
         System.out.println("Add Teme Fail: ID lower than 1");
-        new Teme(0, "descrip", 4, 7);
+        serviceTeme.add(new Teme(0, "descrip", 4, 7));
     }
 
     @Test
@@ -214,7 +214,7 @@ public class MainTests
         exceptionPolicy.expect(ValidationException.class);
         exceptionPolicy.expectMessage("\nDeadline invalid");
         System.out.println("Add Teme Fail: Deadline greater than 14");
-        new Teme(1, "descrip", 4, 15);
+        serviceTeme.add(new Teme(1, "descrip", 4, 15));
     }
 
     @Test
@@ -222,7 +222,7 @@ public class MainTests
         exceptionPolicy.expect(ValidationException.class);
         exceptionPolicy.expectMessage("\nDeadline invalid");
         System.out.println("Add Teme Fail: deadline less than 1");
-        new Teme(1, "descrip", 4, 0);
+        serviceTeme.add(new Teme(1, "descrip", 4, 0));
     }
 
     @Test
@@ -230,7 +230,7 @@ public class MainTests
         exceptionPolicy.expect(ValidationException.class);
         exceptionPolicy.expectMessage("\nDeadline invalid");
         System.out.println("Add Teme Fail: deadline less than saptPrimire");
-        new Teme(1, "descrip", 4, 3);
+        serviceTeme.add(new Teme(1, "descrip", 4, 3));
     }
 
     @Test
@@ -238,7 +238,7 @@ public class MainTests
         exceptionPolicy.expect(ValidationException.class);
         exceptionPolicy.expectMessage("\nSaptamana in care tema a fost primita este invalida");
         System.out.println("Add Teme Fail: saptPrimire greater than 14");
-        new Teme(1, "descrip", 15, 0);
+        serviceTeme.add(new Teme(1, "descrip", 15, 0));
     }
 
     @Test
@@ -246,7 +246,7 @@ public class MainTests
         exceptionPolicy.expect(ValidationException.class);
         exceptionPolicy.expectMessage("\nSaptamana in care tema a fost primita este invalida");
         System.out.println("Add Teme Fail: saptPrimire less than 1");
-        new Teme(1, "descrip", 0, 3);
+        serviceTeme.add(new Teme(1, "descrip", 0, 3));
     }
 
     @Test
