@@ -49,7 +49,7 @@ public class MainTests
 
     @Test
     public void testAddStudentSuccess() {
-        System.out.println("Add Student Fail: Null ID");
+        System.out.println("Add Student Success");
         Student student = new Student("12","Nume",936,"email@gmail.com","prof");
         Student addedStudent = this.serviceStudent.add(student);
         assertEquals(student, addedStudent);
@@ -186,9 +186,67 @@ public class MainTests
     }
 
     @Test
-    public void testAddTema(){
+    public void testAddTemeSuccess() {
+        System.out.println("Add Teme Success");
         Teme tema = new Teme(25, "descrip", 4, 7);
-        assertEquals(serviceTeme.add(tema),tema);
+        assertEquals(serviceTeme.add(tema), tema);
+    }
+
+    @Test
+    public void testAddTemeFailureNullId() {
+        exceptionPolicy.expect(ValidationException.class);
+        exceptionPolicy.expectMessage("\nID invalid");
+        System.out.println("Add Teme Fail: Null ID");
+        new Teme(null, "descrip", 4, 7);
+
+    }
+
+    @Test
+    public void testAddTemeFailureLowerThanOneId() {
+        exceptionPolicy.expect(ValidationException.class);
+        exceptionPolicy.expectMessage("\nID invalid");
+        System.out.println("Add Teme Fail: ID lower than 1");
+        new Teme(0, "descrip", 4, 7);
+    }
+
+    @Test
+    public void testAddTemeFailureDeadlineGreaterThan14() {
+        exceptionPolicy.expect(ValidationException.class);
+        exceptionPolicy.expectMessage("\nDeadline invalid");
+        System.out.println("Add Teme Fail: Deadline greater than 14");
+        new Teme(1, "descrip", 4, 15);
+    }
+
+    @Test
+    public void testAddTemeFailureDeadlineLowerThan1() {
+        exceptionPolicy.expect(ValidationException.class);
+        exceptionPolicy.expectMessage("\nDeadline invalid");
+        System.out.println("Add Teme Fail: deadline less than 1");
+        new Teme(1, "descrip", 4, 0);
+    }
+
+    @Test
+    public void testAddTemeFailureDeadlineLowerThanSaptPrimire() {
+        exceptionPolicy.expect(ValidationException.class);
+        exceptionPolicy.expectMessage("\nDeadline invalid");
+        System.out.println("Add Teme Fail: deadline less than saptPrimire");
+        new Teme(1, "descrip", 4, 3);
+    }
+
+    @Test
+    public void testAddTemeFailureSaptPrimireGreaterThan14() {
+        exceptionPolicy.expect(ValidationException.class);
+        exceptionPolicy.expectMessage("\nSaptamana in care tema a fost primita este invalida");
+        System.out.println("Add Teme Fail: saptPrimire greater than 14");
+        new Teme(1, "descrip", 15, 0);
+    }
+
+    @Test
+    public void testAddTemeFailureSaptPrimireLowerThan1() {
+        exceptionPolicy.expect(ValidationException.class);
+        exceptionPolicy.expectMessage("\nSaptamana in care tema a fost primita este invalida");
+        System.out.println("Add Teme Fail: saptPrimire less than 1");
+        new Teme(1, "descrip", 0, 3);
     }
 
     @Test
@@ -239,7 +297,14 @@ public class MainTests
         testAddStudentFailureEmailNoDot();
         testAddStudentFailureInvalidName();
         testAddStudentFailureInvalidProfessor();
-        testAddTema();
+        testAddTemeSuccess();
+        testAddTemeFailureNullId();
+        testAddTemeFailureLowerThanOneId();
+        testAddTemeFailureDeadlineGreaterThan14();
+        testAddTemeFailureDeadlineLowerThan1();
+        testAddTemeFailureDeadlineLowerThanSaptPrimire();
+        testAddTemeFailureSaptPrimireGreaterThan14();
+        testAddTemeFailureSaptPrimireLowerThan1();
         testAddNote();
         integrationTestAddAssignment();
         integrationTestAddGrade();
