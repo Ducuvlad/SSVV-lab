@@ -222,4 +222,26 @@ public class MainTests
         assertEquals(student , addedStudent);
         assertEquals(serviceTeme.add(tema),tema);
     }
+
+    @Test
+    public void runAllTests() {
+        testAddStudentSuccess();
+        testAddStudentFailureNullId();
+        testAddStudentFailureNonNumericId();
+        testAddStudentFailureEmptyId();
+        testAddStudentFailureGroupBelow111();
+        testAddStudentFailureGroupAbove937();
+        testAddStudentFailureGroupYear0();
+        testAddStudentFailureGroupYear4();
+        testAddStudentFailureGroupNumber0();
+        testAddStudentFailureGroupNumber8();
+        testAddStudentFailureEmailNoAt();
+        testAddStudentFailureEmailNoDot();
+        testAddStudentFailureInvalidName();
+        testAddStudentFailureInvalidProfessor();
+        testAddTema();
+        testAddNote();
+        integrationTestAddAssignment();
+        integrationTestAddGrade();
+    }
 }
